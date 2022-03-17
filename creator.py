@@ -4,19 +4,13 @@
 Creates a repository locally and uses the GitHub python API to create a repository online
 """
 
-env_dir = "__PASTE-DIRECTORY-HERE__" # directory which holds your .env file
-
-
 import os
 import sys
+import yaml
 import shutil
 import logging
 import argparse
 from github import Github
-from dotenv import load_dotenv
-
-# Dotenv Configs
-load_dotenv(os.path.abspath(os.path.join(env_dir, ".env")))
 
 # Logger Configs
 logger = logging.getLogger(__name__)
@@ -31,12 +25,19 @@ logger.addHandler(handler)
 
 class repo_creator():
     def __init__(self):
-        # Stored .env Credentials
-        self.projects_dir = os.getenv("PROJECTS_DIR")
-        self.templates_dir = os.getenv("TEMPLATES_DIR")
-        self.github_username = os.getenv("G_USERNAME")
-        self.github_token = os.getenv("ACCESS_TOKEN")
+        # Get Configs from YAML file
+        with open('./configs.yaml', 'r') as f:
+            cfgs = yaml.safe_load(f)
+            cfgs = cfgs['REPO_CREATOR_CONFIGS']
 
+            try: 
+                self.projects_dir = cfgs['PROJECTS_DIR']
+                self.templates_dir = cfgs['TEMPLATES_DIR']
+                self.github_username = cfgs['GITHUB_USERNAME']
+                self.github_token = cfgs['GITHUB_ACCESS_TOKEN']
+            
+            except Exception as e:
+                logger.exception(f'{e} \n')
 
     def parse_user_cmd(self):
         # Configuring argparse
@@ -121,8 +122,8 @@ class repo_creator():
         commands = [
             f'{cd_command} && git init',
             f'{cd_command} && git remote add origin git@github.com:{self.github_username}/{self.project_name}.git',
-            f'{cd_command} && touch README.md',
-            f'{cd_command} && git add .',
+            f'{cd_command} && echo "{self.project_name}" >> README.md',
+            f'{cd_command} && git add readme.md',
             f'{cd_command} && git commit -m "Initial commit',
             f'{cd_command} && git push -u origin master',
             f'{cd_command} && code .'
