@@ -39,6 +39,9 @@ class repo_creator():
             except Exception as e:
                 logger.exception(f'{e} \n')
 
+    def print(self):
+        print(self.projects_dir , self.templates_dir, self.github_username, self.github_token)
+
     def parse_user_cmd(self):
         # Configuring argparse
         parser = argparse.ArgumentParser(description='Collect Project Language and Project Name')
@@ -121,11 +124,11 @@ class repo_creator():
         cd_command = f'cd {self.project_path}'
         commands = [
             f'{cd_command} && git init',
-            f'{cd_command} && git remote add origin git@github.com:{self.github_username}/{self.project_name}.git',
+            # f'{cd_command} && git remote add origin git@github.com:{self.github_username}/{self.project_name}.git',
             f'{cd_command} && echo "{self.project_name}" >> README.md',
-            f'{cd_command} && git add readme.md',
-            f'{cd_command} && git commit -m "Initial commit',
-            f'{cd_command} && git push -u origin master',
+            f'{cd_command} && git add README.md',
+            f'{cd_command} && git commit -m "Initial commit"',
+            # f'{cd_command} && git push -u origin master',
             f'{cd_command} && code .'
         ]
 
@@ -137,6 +140,7 @@ class repo_creator():
         methods = [
             self.parse_user_cmd,
             self.get_project_path,
+            # self.print,
             self.create_proj_dir,
             self.create_repo_online,
             self.initialize_repo_locally
