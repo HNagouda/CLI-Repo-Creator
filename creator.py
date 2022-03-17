@@ -1,4 +1,4 @@
-#! /home/harsh/anaconda3/envs/CLI-Repo-Creator/bin/python
+#! SHEBANG
 
 """
 Creates a repository locally and uses the GitHub python API to create a repository online
@@ -100,7 +100,7 @@ class repo_creator():
             shutil.copytree(src=language_templates_dir, 
                             dst=os.path.abspath(os.path.join(self.project_path, 'templates')))
         else:
-            logger.exception(' You requested copying your templates to your new project, but the templates directory does not exist. Check for typos in the .env file. Creating new project without copying templates...\n')
+            logger.exception(' You requested copying your templates to your new project, but the templates directory does not exist. Check for typos in the configs.yaml file. Creating new project without copying templates...\n')
 
 
     def create_repo_online(self):
@@ -109,7 +109,7 @@ class repo_creator():
             logger.info(f' Authenticated GitHub user "{user.login}": Creating new GitHub repository {self.project_name}\n')
             user.create_repo(self.project_name)
         except Exception as e:
-            logger.exception(f""" WARNING: Check error message below for details - Most likely caused by Invalid credentials (github token) being provided. Check the .env file for typos and confirm whether the github token provided has the necessary permissions.
+            logger.exception(f""" WARNING: Check error message below for details - Most likely caused by Invalid credentials (github token) being provided. Check the configs.yaml file for typos and confirm whether the github token provided has the necessary permissions.
             Required Permissions: repo, repo:status, repo_deployment, public_repo, security:events\n""")
 
             sys.exit(1)
