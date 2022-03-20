@@ -98,8 +98,6 @@ To open a folder/repository from your projects folder:
 
 ## **Note: Feel free to rename the exe files to something of your preference!**
 
----
-
 ## Base Requirements
 
 Python 3.0+  
