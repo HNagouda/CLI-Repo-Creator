@@ -72,7 +72,7 @@ To get quick overview on the CLI arguments, run:
 
 To create a new repository, type the following from any directory in your shell:
    ```bash
-   creator.py -l python -n project_name 
+   $ creator.py -l python -n project_name 
    
    # project directory will be created at /PROJECT_DIR/Python/Project-Name
    
@@ -85,7 +85,7 @@ To create a new repository, type the following from any directory in your shell:
 
 If you wish to create a new project without a category or language, run:
    ```bash
-   creator.py -n project_name
+   $ creator.py -n project_name
 
    # project directory will be created at /PROJECT_DIR/Project-Name
    ```
@@ -93,7 +93,7 @@ If you wish to create a new project without a category or language, run:
 
 To open a folder/repository from your projects folder:
    ```bash
-   open.py
+   $ open.py
    ```
 
 ## **Note: Feel free to rename the exe files to something of your preference!**
