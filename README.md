@@ -66,30 +66,33 @@ Built for Linux.
 To get quick overview on the CLI arguments, run:
    ```bash
    creator.py -h 
-   
-   # usage: creator.py [-h] [-l [Lang]] -n Name [-t [{y,n}]]
+   ```
+   ```bash
+      # usage: creator.py [-h] [-l [Lang]] -n Name [-t [{y,n}]]
    ```
 
 To create a new repository, type the following from any directory in your shell:
    ```bash
    creator.py -l python -n project_name 
-   
-   # project directory will be created at /PROJECT_DIR/Python/Project-Name
    ```
-   <span style="color:blue">
-        Note: if you like organizing your projects by categories, then specify your category instead of a language for the `-l` argument
-   
-        examples: 
-        creator.py -l WebDev -n project_name
-        creator.py -l ML -n project_name
-   </span>.
-   
+   ```bash
+      # project directory will be created at /PROJECT_DIR/Python/Project-Name
+   ```
+   - **Note: if you like organizing your projects by categories, then specify your category instead of a language for the `-l` argument**
+ 
+      examples: 
+
+         creator.py -l WebDev -n project_name    
+         creator.py -l ML -n project_name
+ 
+    
 
 If you wish to create a new project without a category or language, run:
    ```bash
    creator.py -n project_name
-
-   # project directory will be created at /PROJECT_DIR/Project-Name
+   ```
+   ```bash
+      # project directory will be created at /PROJECT_DIR/Project-Name
    ```
 
 
@@ -104,3 +107,5 @@ To open a folder/repository from your projects folder:
 
 Python 3.0+  
 Visual Studio Code 
+
+---
