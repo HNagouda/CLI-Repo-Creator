@@ -11,7 +11,9 @@ import yaml
 class project_opener():
     def __init__(self):
         # Get Configs from YAML file
-        with open('configs.yaml', 'r') as f:
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+
+        with open(os.path.join(dir_path, 'configs.yaml'), 'r') as f:
             cfgs = yaml.safe_load(f)
             cfgs = cfgs['REPO_CREATOR_CONFIGS']
 
