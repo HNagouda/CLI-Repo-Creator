@@ -30,9 +30,9 @@ Built for Linux.
 
 1. Clone the repository:
     ```bash
-    $ git clone "https://github.com/HNagouda/Project-Creation-Automation.git"
-    $ cd Project-Creation-Automation
-    $ pip install -r requirements.txt 
+    git clone "https://github.com/HNagouda/Project-Creation-Automation.git"
+    cd Project-Creation-Automation
+    pip install -r requirements.txt 
     ```
     - **Note: It is recommended to create a new pip/conda env for the scripts to use.**
   
@@ -55,8 +55,8 @@ Built for Linux.
 
 7. Give the scripts executable priveleges:
    ```bash
-   $ chmod +x creator.py
-   $ chmod +x open.py
+   chmod +x creator.py
+   chmod +x open.py
    ```
 
 
@@ -65,27 +65,29 @@ Built for Linux.
 
 To get quick overview on the CLI arguments, run:
    ```bash
-   $ creator.py -h 
+   creator.py -h 
    
    # usage: creator.py [-h] [-l [Lang]] -n Name [-t [{y,n}]]
    ```
 
 To create a new repository, type the following from any directory in your shell:
    ```bash
-   $ creator.py -l python -n project_name 
+   creator.py -l python -n project_name 
    
    # project directory will be created at /PROJECT_DIR/Python/Project-Name
-   
-   # Note: if you like organizing your projects by categories, then specify your category instead of a language for the `-l` argument
-   
-   # examples: 
-   # creator.py -l WebDev -n project_name
-   # creator.py -l ML -n project_name
    ```
+   <span style="color:blue">
+        Note: if you like organizing your projects by categories, then specify your category instead of a language for the `-l` argument
+   
+        examples: 
+        creator.py -l WebDev -n project_name
+        creator.py -l ML -n project_name
+   </span>.
+   
 
 If you wish to create a new project without a category or language, run:
    ```bash
-   $ creator.py -n project_name
+   creator.py -n project_name
 
    # project directory will be created at /PROJECT_DIR/Project-Name
    ```
@@ -93,7 +95,7 @@ If you wish to create a new project without a category or language, run:
 
 To open a folder/repository from your projects folder:
    ```bash
-   $ open.py
+   open.py
    ```
 
 ## **Note: Feel free to rename the exe files to something of your preference!**
