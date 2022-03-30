@@ -127,7 +127,7 @@ class repo_creator():
         commands = [
             f'{cd_command} && git init',
             # f'{cd_command} && git remote add origin git@github.com:{self.github_username}/{self.project_name}.git',
-            f'{cd_command} && echo "#{self.project_name}" >> README.md',
+            f'{cd_command} && echo "# {self.project_name}" >> README.md',
             f'{cd_command} && git add README.md',
             f'{cd_command} && git commit -m "Initial commit"',
             # f'{cd_command} && git push -u origin master',
